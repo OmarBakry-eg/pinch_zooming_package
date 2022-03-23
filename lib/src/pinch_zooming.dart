@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class PinchZooming extends StatefulWidget {
@@ -46,8 +45,10 @@ class PinchZooming extends StatefulWidget {
   _PinchZoomingState createState() => _PinchZoomingState();
 }
 
-class _PinchZoomingState extends State<PinchZooming> with SingleTickerProviderStateMixin {
-  final TransformationController _transformationController = TransformationController();
+class _PinchZoomingState extends State<PinchZooming>
+    with SingleTickerProviderStateMixin {
+  final TransformationController _transformationController =
+      TransformationController();
 
   late Animation<Matrix4> _animation;
 
@@ -63,7 +64,8 @@ class _PinchZoomingState extends State<PinchZooming> with SingleTickerProviderSt
       vsync: this,
     );
     _animation = Matrix4Tween().animate(_controller);
-    _controller.addListener(() => _transformationController.value = _animation.value);
+    _controller
+        .addListener(() => _transformationController.value = _animation.value);
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         removeOverlay();
@@ -85,7 +87,8 @@ class _PinchZoomingState extends State<PinchZooming> with SingleTickerProviderSt
       builder: (c) => Stack(
         children: [
           Positioned.fill(
-              child: Opacity(opacity: 0.5, child: Container(color: Colors.black))),
+              child:
+                  Opacity(opacity: 0.5, child: Container(color: Colors.black))),
           Positioned(
             left: _offset.dx,
             top: _offset.dy,
@@ -119,9 +122,10 @@ class _PinchZoomingState extends State<PinchZooming> with SingleTickerProviderSt
   }
 
   void restAnimation() {
-    _animation =
-        Matrix4Tween(begin: _transformationController.value, end: Matrix4.identity())
-            .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInBack));
+    _animation = Matrix4Tween(
+            begin: _transformationController.value, end: Matrix4.identity())
+        .animate(
+            CurvedAnimation(parent: _controller, curve: Curves.easeInBack));
     _controller.forward(from: 0);
   }
 

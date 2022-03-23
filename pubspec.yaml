@@ -1,6 +1,6 @@
 name: pinch_zooming
 description: A package helps you to zoom any widget and overlay it over the appbar and navigation bar.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/OmarBakry-eg/pinch_zooming_package.git
 
 environment:

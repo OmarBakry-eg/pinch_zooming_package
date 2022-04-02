@@ -1,4 +1,3 @@
-## 1.0.1
+## 1.0.2
 
-* A package helps you to zoom any widget and overlay it over the appbar and navigation bar. 
-* Based on InteractiveViewer Widget and OverlayEntry.
+* Update minSDK version
